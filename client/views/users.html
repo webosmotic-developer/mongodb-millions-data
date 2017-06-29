@@ -1,0 +1,113 @@
+<div class="row" ng-init="fnInitUsers()">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Users</div>
+            <div style="min-height: 5px;">
+                <div class="loader" ng-if="isUserLoad"></div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label class="control-label" for="perPage">Per Page:</label>
+                            <select id="perPage" class="form-control"
+                                    ng-model="query.limit"
+                                    ng-options="limit for limit in limits"
+                                    ng-change="fnGetUsers(query)"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="pageNo">Page No:</label>
+                            <input type="number" id="pageNo" class="form-control"
+                                   ng-model="query.page" min="1"
+                                   ng-model-options="{debounce: 1000}"
+                                   ng-change="fnGetUsers(query)"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="sortBy">Sort By:</label>
+                            <select id="sortBy" class="form-control"
+                                    ng-model="query.sort"
+                                    ng-options="order.value as order.name for order in sortBy"
+                                    ng-change="fnGetUsers(query)"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="orderBy">Order By:</label>
+                            <select id="orderBy" class="form-control"
+                                    ng-model="query.order"
+                                    ng-options="order.value as order.name for order in orderBy"
+                                    ng-change="fnGetUsers(query)"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="search">Search:</label>
+                            <input type="text" id="search" class="form-control" placeholder="Search name..."
+                                   ng-model="query.search"
+                                   ng-model-options="{debounce: 1000}"
+                                   ng-change="fnGetUsers(query)"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="action" class="col-sm-12 p-0">Action:</label>
+                            <div id="action" class="btn-group">
+                                <button type="button" class="btn btn-default" ng-click="fnPrevious(query)"
+                                        ng-disabled="query.page <= 1">
+                                    <i class="glyphicon glyphicon-arrow-left"></i>
+                                </button>
+                                <button type="button" class="btn btn-default" ng-click="fnNext(query)"
+                                        ng-disabled="users.length === 0">
+                                    <i class="glyphicon glyphicon-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Gender</th>
+                                    <th>Eye Color</th>
+                                    <th>Age</th>
+                                    <th>Balance</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="user in users">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td>{{user.phone}}</td>
+                                    <td class="text-capitalize">{{user.gender}}</td>
+                                    <td class="text-capitalize">{{user.eyeColor}}</td>
+                                    <td>{{user.age}}</td>
+                                    <td>{{user.balance | currency}}</td>
+                                    <td>
+                                        <a href="javascript:void(0)" ng-href="#/users/{{user._id}}"><span
+                                                class="glyphicon glyphicon-edit"></span></a>&nbsp;|&nbsp;
+                                        <a href="javascript:void(0)" ng-click="fnRemoveUser(user._id)"><span
+                                                class="glyphicon glyphicon-trash text-danger"></span></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
