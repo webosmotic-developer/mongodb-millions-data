@@ -15,9 +15,9 @@ exports.index = function (req, res) {
     var querySort = {};
     querySort[sort] = parseInt(order);
 
-    User.find(search).sort(querySort)
-        .skip(limit * (page > 0 ? page - 1 : 0))
-        .limit(limit)
+    User.find(search, {}, {limit: limit, skip: limit * (page > 0 ? page - 1 : 0)})
+        .sort(querySort)
+        .lean()
         .exec(function (err, users) {
             if (err) {
                 return handleError(res, err);

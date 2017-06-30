@@ -23,7 +23,14 @@ app.controller("UsersCtrl",
                 {displayName: 'Age', name: 'age', minWidth: 55, maxWidth: 55, enableHiding: false},
                 {displayName: 'Eye Color', name: 'eyeColor', minWidth: 95, maxWidth: 95, enableHiding: false},
                 {displayName: 'Company', name: 'company', minWidth: 100, maxWidth: 100, enableHiding: false},
-                {displayName: 'Balance', name: 'balance', minWidth: 80, maxWidth: 80, enableHiding: false},
+                {
+                    displayName: 'Balance',
+                    name: 'balance',
+                    minWidth: 80,
+                    maxWidth: 80,
+                    cellFilter: 'currency',
+                    enableHiding: false
+                },
                 {
                     displayName: 'Registered',
                     name: 'registered',
