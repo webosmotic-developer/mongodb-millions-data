@@ -11,7 +11,7 @@ exports.index = function (req, res) {
     // var search = req.query.search ? {$text: {$search: req.query.search}} : {};
     var search = req.query.search ? {name: new RegExp(req.query.search)} : {};
     var sort = req.query.sort ? req.query.sort : 'name';
-    var order = req.query.order ? req.query.order : 1; // 1 for ascending order and  -1 for descending
+    var order = req.query.order ? parseInt(req.query.order) : 1; // 1 for ascending order and  -1 for descending
     var querySort = {};
     querySort[sort] = parseInt(order);
 
@@ -22,7 +22,9 @@ exports.index = function (req, res) {
             if (err) {
                 return handleError(res, err);
             }
-            return res.status(200).json(users);
+            User.count({}, function (err, count) {
+                return res.status(200).json({totDocument: count, users: users});
+            });
         });
 };
 

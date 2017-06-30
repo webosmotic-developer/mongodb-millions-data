@@ -1,4 +1,4 @@
-var app = angular.module('NodeCRUD', ['ngRoute', 'ngResource']);
+var app = angular.module('MongoDBMillionsData', ['ngRoute', 'ngResource', 'ui.grid', 'ui.grid.pagination']);
 
 app.config(function ($routeProvider) {
     $routeProvider

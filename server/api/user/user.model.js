@@ -9,7 +9,7 @@ var UserSchema = new Schema({
     picture: String,
     age: Number,
     eyeColor: String,
-    name: String,
+    name: {type: String, index: true},
     gender: String,
     company: String,
     email: String,

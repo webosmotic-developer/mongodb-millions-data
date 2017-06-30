@@ -46,3 +46,8 @@ body {
         left: 100%;
     }
 }
+
+.users-grid abbr[data-original-title], .users-grid abbr[title] {
+    border-bottom: none;
+    text-decoration: none;
+}
