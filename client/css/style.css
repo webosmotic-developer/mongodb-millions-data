@@ -6,6 +6,26 @@ body {
     padding: 0 !important;
 }
 
+.m-t-0 {
+    margin-top: 0 !important;
+}
+
+.m-b-0 {
+    margin-bottom: 0 !important;
+}
+
+.m-t-5 {
+    margin-top: 5px !important;
+}
+
+.m-t-10 {
+    margin-top: 10px !important;
+}
+
+.m-t-65 {
+    margin-top: 65px !important;
+}
+
 .loader {
     height: 4px;
     width: 100%;
