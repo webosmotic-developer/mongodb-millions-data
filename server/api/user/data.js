@@ -4,9 +4,8 @@
  * Get users mock data.
  * http://www.json-generator.com/
  * [
-     '{{repeat(10000, 10000)}}',
+     '{{repeat(25000, 25000)}}',
      {
-         _id: '{{objectId()}}',
          isActive: '{{bool()}}',
          balance: '{{floating(1000, 4000, 2)}}',
          picture: 'http://placehold.it/32x32',
@@ -26,5 +25,5 @@
  ]
  * */
 exports.mock = function () {
-    return []
+    return [];
 };

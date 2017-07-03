@@ -16,10 +16,10 @@ var UserSchema = new Schema({
     phone: String,
     address: String,
     about: String,
-    registered: Date,
+    registered: {type: Date, default: Date.now()},
     latitude: Number,
     longitude: Number
-});
+}, {collection: 'Users'});
 
 // Include all string fields in the index
 UserSchema.index({
@@ -31,4 +31,4 @@ UserSchema.index({
 // Create an index to support text search on, say, name and profile.something
 // UserSchema.index({name: 'text', 'profile.something': 'text'});
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Users', UserSchema);

@@ -12,7 +12,7 @@ module.exports = {
     mongo: {
         uri: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL ||
         process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_APP_NAME ||
-        'mongodb://<dbuser>:<dbpassword>@ds135812.mlab.com:35812/millions_data', // Localhost URI : mongodb://localhost/mmd
+        'mongodb://<dbuser>:<dbpassword>@ds135812.mlab.com:35812/millions_data', // Localhost URI : mongodb://localhost/millions_data
         options: {
             db: {
                 safe: true

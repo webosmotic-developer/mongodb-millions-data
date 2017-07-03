@@ -51,12 +51,13 @@ exports.create = function (req, res) {
     });
 };
 
-// insert 10000 data.
+// insert 25000 data.
 // exports.create = function (req, res) {
 //     var mock = data.mock(), len = mock.length;
 //     // set this to whatever number of items you can process at once
 //     var chunk = 100;
 //     var intIndex = 0;
+//
 //     function fnDoChunk() {
 //         var cnt = chunk;
 //         while (cnt-- && intIndex < len) {
@@ -73,9 +74,10 @@ exports.create = function (req, res) {
 //         }
 //         if (intIndex < len) {
 //             // set Timeout for async iteration
-//             setTimeout(fnDoChunk, intIndex);
+//             setTimeout(fnDoChunk, intIndex / 10);
 //         }
 //     }
+//
 //     fnDoChunk();
 // };
 
