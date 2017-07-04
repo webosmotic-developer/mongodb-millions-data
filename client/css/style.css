@@ -71,3 +71,8 @@ body {
     border-bottom: none;
     text-decoration: none;
 }
+
+.users-grid .ui-grid-pager-control input,
+.users-grid .ui-grid-pager-row-count-picker select {
+    width: 80px;
+}
