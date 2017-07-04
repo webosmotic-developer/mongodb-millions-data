@@ -77,6 +77,9 @@ app.controller("UsersCtrl",
                 $scope.gridOptions.totalItems = data.totDocument;
                 $scope.gridOptions.data = data.users;
                 $scope.isUserLoad = false;
+            }, function (error) {
+                toastr.error(error.data.message, error.status + ' : ' + error.statusText);
+                $scope.isUserLoad = false;
             });
         };
 

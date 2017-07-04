@@ -8,10 +8,12 @@ app.controller("UserCtrl",
                 var user = new User(userObj);
                 if (userObj._id) {
                     user.$update(function () {
+                        toastr.success('User updated');
                         $location.path('/');
                     });
                 } else {
                     user.$save(function () {
+                        toastr.success('User created');
                         $location.path('/');
                     });
                 }
