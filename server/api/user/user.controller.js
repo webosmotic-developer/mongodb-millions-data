@@ -22,7 +22,7 @@ exports.index = function (req, res) {
             if (err) {
                 return handleError(res, err);
             }
-            User.count({}, function (err, count) {
+            User.count(search, function (err, count) {
                 return res.status(200).json({totDocument: count, users: users});
             });
         });
